@@ -56,7 +56,7 @@ down-v:
 	docker compose -f local.yml down -v
 
 volume:
-	docker volume inspect django-production_local_postgres_data
+	docker volume inspect django-author-api_local_postgres_data
 
 reset-db:
 	@docker compose -f local.yml exec postgres psql --username=$(PG_USERNAME) --dbname=postgres -c "DROP DATABASE IF EXISTS $(DB_NAME);"

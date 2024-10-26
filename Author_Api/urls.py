@@ -34,6 +34,7 @@ urlpatterns = [
     path("api/v1/articles/", include("django_apps.articles.urls")),
     path("api/v1/ratings/", include("django_apps.ratings.urls")),
     path("api/v1/bookmarks/", include("django_apps.bookmarks.urls")),
+    path("api/v1/responses/", include("django_apps.responses.urls")),
 ]
 
 admin.site.site_header = "Author_Api Admin"

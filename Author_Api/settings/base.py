@@ -44,7 +44,8 @@ LOCAL_APPS = [
     "django_apps.users",
     "django_apps.articles",
     "django_apps.ratings",
-    "django_apps.bookmarks"
+    "django_apps.bookmarks",
+    "django_apps.responses"
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
