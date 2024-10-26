@@ -31,6 +31,8 @@ urlpatterns = [
         name="password_reset_confirm",
     ),
     path("api/v1/profiles/", include("django_apps.profiles.urls")),
+    path("api/v1/articles/", include("django_apps.articles.urls")),
+    path("api/v1/ratings/", include("django_apps.ratings.urls")),
 ]
 
 admin.site.site_header = "Author_Api Admin"

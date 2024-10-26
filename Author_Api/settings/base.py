@@ -35,12 +35,15 @@ THIRD_PARTY_APPS =  [
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "taggit"
 ]
 
 LOCAL_APPS = [
     "django_apps.profiles",
     "django_apps.common",
     "django_apps.users",
+    "django_apps.articles",
+    "django_apps.ratings",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
