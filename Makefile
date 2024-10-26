@@ -67,7 +67,7 @@ access-db:
 	docker compose -f local.yml exec postgres psql --username=${PG_USERNAME} --dbname=${DB_NAME}
 
 terminate-db-sessions:
-	docker compose -f local.yml exec postgres psql --username=${PG_USERNAME} --dbname=${DB_NAME} -c "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'django_demo_db' AND pid <> pg_backend_pid();"
+	docker compose -f local.yml exec postgres psql --username=${PG_USERNAME} --dbname=${DB_NAME} -c "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = '$(DB_NAME)' AND pid <> pg_backend_pid();"
 
 flake8:
 	docker compose -f local.yml exec api flake8 .
