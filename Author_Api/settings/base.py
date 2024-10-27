@@ -1,6 +1,7 @@
-from pathlib import Path
-import environ
 from datetime import timedelta
+from pathlib import Path
+
+import environ
 
 env = environ.Env()
 
@@ -21,7 +22,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
 ]
 
-THIRD_PARTY_APPS =  [
+THIRD_PARTY_APPS = [
     "rest_framework",
     "django_filters",
     "django_countries",
@@ -37,7 +38,7 @@ THIRD_PARTY_APPS =  [
     "dj_rest_auth.registration",
     "taggit",
     "django_elasticsearch_dsl",
-    "django_elasticsearch_dsl_drf"
+    "django_elasticsearch_dsl_drf",
 ]
 
 LOCAL_APPS = [
@@ -48,7 +49,7 @@ LOCAL_APPS = [
     "django_apps.ratings",
     "django_apps.bookmarks",
     "django_apps.responses",
-    "django_apps.search"
+    "django_apps.search",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

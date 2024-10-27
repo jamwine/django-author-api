@@ -32,17 +32,19 @@ class CustomUserManager(BaseUserManager):
         user = self.model(
             first_name=first_name, last_name=last_name, email=email, **extra_fields
         )
-        
+
         # Ensure password is set properly
         if password:
             user.set_password(password)
         else:
             raise ValueError(_("The password is required."))
-        
+
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, first_name, last_name, email, password=None, **extra_fields):
+    def create_superuser(
+        self, first_name, last_name, email, password=None, **extra_fields
+    ):
         """Create and return a superuser with the provided details."""
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)

@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class UserChangeForm(admin_forms.UserChangeForm):
     class Meta(admin_forms.UserChangeForm.Meta):
         model = User
@@ -24,7 +25,7 @@ class UserCreationForm(admin_forms.UserCreationForm):
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError(self.error_messages["duplicate_email"])
         return email
-    
+
     def clean_password2(self):
         # Ensure passwords match
         password1 = self.cleaned_data.get("password1")

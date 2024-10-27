@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 # User = get_user_model()
 
+
 @receiver(post_save, sender=AUTH_USER_MODEL)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -21,7 +22,7 @@ def create_user_profile(sender, instance, created, **kwargs):
             raise e
     else:
         # Check if profile already exists
-        if not hasattr(instance, 'profile'):
+        if not hasattr(instance, "profile"):
             try:
                 Profile.objects.create(user=instance)
                 logger.info(f"Profile for {instance}'s has been created.")
