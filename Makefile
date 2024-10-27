@@ -92,3 +92,9 @@ isort:
 
 generate_secret_key:
 	python -c "import secrets; print(secrets.token_urlsafe(38))"
+
+create-index:
+	docker compose -f local.yml exec api python manage.py create_index --create
+
+populate-index:
+	docker compose -f local.yml exec api python manage.py create_index --populate

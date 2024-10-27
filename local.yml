@@ -1,6 +1,15 @@
 version: "3.9"
 
 services:
+    es:
+        image: elasticsearch:7.17.9
+        environment:
+            - discovery.type=single-node
+        ports:
+            - "9200:9200"
+        container_name: es
+        networks:
+            - django-api
     api:
         build:
             context: .
@@ -22,6 +31,7 @@ services:
             - postgres
             - mailhog
             - redis
+            - es
         networks:
             - django-api
 

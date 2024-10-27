@@ -35,7 +35,9 @@ THIRD_PARTY_APPS =  [
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
-    "taggit"
+    "taggit",
+    "django_elasticsearch_dsl",
+    "django_elasticsearch_dsl_drf"
 ]
 
 LOCAL_APPS = [
@@ -45,7 +47,8 @@ LOCAL_APPS = [
     "django_apps.articles",
     "django_apps.ratings",
     "django_apps.bookmarks",
-    "django_apps.responses"
+    "django_apps.responses",
+    "django_apps.search"
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -226,3 +229,8 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_USERNAME_REQUIRED = False
 
+ELASTICSEARCH_DSL = {
+    "default": {
+        "hosts": "es:9200",
+    },
+}
