@@ -90,9 +90,13 @@ isort-diff:
 isort:
 	docker compose -f local.yml exec api isort . --skip venv --skip migrations
 
+run-pytest:
+	docker compose -f local.yml run --rm api pytest -p no:warnings --cov=. --cov-report=html -v
+
 generate_secret_key:
 	python -c "import secrets; print(secrets.token_urlsafe(38))"
 
+# Elasticsearch commands
 create-index:
 	docker compose -f local.yml exec api python manage.py create_index --create
 
