@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 # TODO: change this in production
-from Author_Api.settings.local import DEFAULT_FROM_EMAIL
+from Author_Api.settings.production import DEFAULT_FROM_EMAIL
 
 from .exceptions import CantFollowYourself
 from .models import Profile

@@ -1,6 +1,7 @@
 # Define variables
 PG_USERNAME := admin
 DB_NAME := django_demo_db 
+SECRET_LENGTH := 38
 
 build:
 	docker compose -f local.yml up --build -d --remove-orphans
@@ -19,7 +20,7 @@ backup-db:
 	docker compose -f local.yml exec postgres backup
 
 show-backups:
-	docker compose -f local.yml exec postgres backups
+	docker compose -f local.yml exec postgres backups 
 
 restore-db:
 	docker compose -f local.yml exec postgres restore ${backup_id}
@@ -45,6 +46,9 @@ migrate:
 make-migrate:
 	@$(MAKE) makemigrations
 	@$(MAKE) migrate
+
+check-deploy:
+	docker compose -f local.yml run --rm api python manage.py check --deploy
 
 collectstatic:
 	docker compose -f local.yml run --rm api python manage.py collectstatic --no-input --clear
@@ -94,7 +98,7 @@ run-pytest:
 	docker compose -f local.yml run --rm api pytest -p no:warnings --cov=. --cov-report=html -v
 
 generate_secret_key:
-	python -c "import secrets; print(secrets.token_urlsafe(38))"
+	python -c "import secrets; print(secrets.token_urlsafe(${SECRET_LENGTH}))"
 
 # Elasticsearch commands
 create-index:
